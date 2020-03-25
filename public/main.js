@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
     draggable.init({
         events: {
             onFinishDrop: function (newElement) {

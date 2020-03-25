@@ -1,13 +1,9 @@
 !function (exports) {
-    /**
-     *
-     * @returns {draggable }
-     */
     const draggable = function () {
         let self = {}; // private API
         let draggable = {}; // public API
 
-            // Plugin defaults
+        // Plugin defaults
         let defaults = {
             selectorsList: {
                 dragElement: '.item',
@@ -31,11 +27,14 @@
          * @return {number}
          */
         self.createNewId = () => {
-            return parseInt(document.querySelectorAll('.item').length) + 1;
+            let length = document.querySelectorAll('.item').length;
+
+            if (length) {
+                return document.querySelectorAll('.item').length + 1;
+            }
+
+            return 1;
         };
-        /**
-         *
-         */
         self.initAppendAfter = () => {
             Element.prototype.appendAfter = function (element) {
                 element.parentNode.insertBefore(this, element.nextSibling);
@@ -46,10 +45,6 @@
          * @type {{onDrop: onDrop, onDropSave: onDropSave, onDragOver: onDragOver, onDragStart: onDragStart, onDragLeave: onDragLeave, onDragEnter: onDragEnter}}
          */
         self.listenEvent  ={
-            /**
-             *
-             * @param event
-             */
             onDragEnter: function (event) {
                 if (self.isFunction(self.options.events.onDragEnter)) {
                     self.options.events.onDragEnter(event);
@@ -57,10 +52,6 @@
 
                 event.preventDefault();
             },
-            /**
-             *
-             * @param event
-             */
             onDragLeave: function (event) {
                 if (self.isFunction(self.options.events.onDragLeave)) {
                     self.options.events.onDragLeave(event);
@@ -68,10 +59,6 @@
 
                 event.preventDefault();
             },
-            /**
-             *
-             * @param element
-             */
             onDrop: function (element = false) {
                 let callback  = (event) => {
                     self.drag(event);
@@ -89,10 +76,6 @@
                     })
                 }
             },
-            /**
-             *
-             * @param element
-             */
             onDragStart: function (element = false) {
                 let callback = (event) => {
                     self.drag(event);
@@ -110,10 +93,6 @@
                     })
                 }
             },
-            /**
-             *
-             * @param element
-             */
             onDropSave: function (element = false) {
                 let callback = (event) => {
                     self.append(event);
@@ -131,10 +110,6 @@
                     })
                 }
             },
-            /**
-             *
-             * @param element
-             */
             onDragOver: function (element = false) {
                 let callback = (event) => {
                     self.allowDrop(event);
@@ -166,24 +141,12 @@
 
             return newElement;
         };
-        /**
-         *
-         * @param event
-         */
         self.allowDrop = (event) =>  {
             event.preventDefault();
         };
-        /**
-         *
-         * @param event
-         */
         self.drag = (event) => {
             return event.dataTransfer.setData("text", event.target.id);
         };
-        /**
-         *
-         * @param event
-         */
         self.append =  (event) => {
             event.preventDefault();
             event.target.classList.remove("focus");
@@ -230,7 +193,7 @@
          *
          */
         self.options = {
-            events: {
+            events: { // Event draggable
                 onFinishDrop: () => {},
                 onDragEnter: () => {},
                 onDragLeave: () => {},
@@ -238,11 +201,9 @@
                 onDragStart: () => {},
                 onDragOver: () => {},
                 onRemove: () => {},
-            }, // Event draggable
+            },
         };
-        /**
-         *
-         */
+
         self.activeEvents = () => {
             self.listenEvent.onDrop();
             self.listenEvent.onDragStart();
@@ -253,12 +214,7 @@
         /*-------- PRIVATE METHODS END----------------------------------------------------------*/
 
         /*-------- PUBLIC METHODS STARTED----------------------------------------------------------*/
-        /**
-         *
-         * @param element
-         */
         draggable.removeItem = (element) => {
-            console.log(element);
             element.remove();
 
             if (self.isFunction(self.options.events.onRemove)) {
