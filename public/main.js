@@ -24,9 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
             onDragStart: () => {
                 console.log('onDragStart');
             },
-            onDrop: () => {
-                console.log('onDrop');
-            },
             onDragOver: () => {
                 console.log('onDragOver');
             },

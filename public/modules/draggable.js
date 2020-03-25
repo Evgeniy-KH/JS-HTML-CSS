@@ -3,7 +3,7 @@
      *
      * @returns {draggable }
      */
-    draggable = function () {
+    const draggable = function () {
         let self = {}; // private API
         let draggable = {}; // public API
 

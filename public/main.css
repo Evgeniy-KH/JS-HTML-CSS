@@ -8,18 +8,15 @@
     margin-bottom: 14px;
     margin-top: 14px;
 }
-
 .boxed-md>.text-center .h3 {
     background-color: #fff;
     padding-left: 10px;
     padding-right: 10px;
 }
-
 .focus {
     margin: 0 0 0 200px;
     transition: all 1s linear;
 }
-
 .h3 {
     margin-top: 15px;
     margin-bottom:18px;
@@ -29,17 +26,14 @@
     margin-top: -12px;
     margin-bottom: 12px;
 }
-
 .list-elements {
     margin-top: 30px;
 }
-
 .content {
     width: 200px;
     height: fit-content;
     margin: 10px;
 }
-
 .image {
     margin: 5px;
     width: 200px;
@@ -49,11 +43,9 @@
     margin-topheight: 200px;
     background: url('./images/f891b93cd8e8b75353e3bba01d085c69.jpg');background-size: cover;
 }
-
 .box-cats {
     min-height: 400px;
 }
-
 .droppable {
     background: #e9ecef;
     height: 400px;
@@ -63,7 +55,9 @@
     height: fit-content;
     min-height: 400px
 }
-
+.item {
+    height: fit-content;
+}
 .list-elements .content .remove-item {
     display: none!important;
 }
