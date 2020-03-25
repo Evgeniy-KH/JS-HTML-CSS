@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title class="mt-5">Пример веб-страницы</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="public/main.css">
+    </head>
+    <body>
+        <h1 class="text-center">JS-HTML-CSS: List Builder</h1>
+        <div class="row mt-5">
+            <div class="col-2 offset-1 text-center">
+                <div id="" class="list-elements">
+                    <div id="item_copy" style="height: fit-content" draggable="true" class="copy item">
+                        <div class="content">
+                            <button type="button" class="close remove-item" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <div class="image" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 box-cats">
+                <div class="boxed-md boxed-padded">
+                    <div class="text-center">
+                        <span class="h3">Box for cats</span>
+                        <div id="process" class="droppable"></div>
+                         </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="public/draggable.js"></script>
+    <script src="public/main.js"></script>
+
+</html>
+
